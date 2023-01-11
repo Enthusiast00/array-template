@@ -15,19 +15,19 @@
 #define _SWAP(X,Y) { T c=X; X=Y;Y=c; }
 
 template<typename T ,typename T1 = uint32_t >
-class rt_array {
+class Array {
 
     T1  m_pos;
     T1  m_size;
     T * m_data;
 public:
-    rt_array():m_pos(0),m_size(0),m_data(NULL){}
+    Array():m_pos(0),m_size(0),m_data(NULL){}
 
-    rt_array(const rt_array& x): m_pos(0),m_size(0),m_data(NULL) { Copy(x); }
-    rt_array(const T& val): m_pos(0),m_size(0),m_data(NULL) { PushBack(val); }
-    rt_array(const T* val): m_pos(0),m_size(0),m_data(NULL) { operator =(val); }
+    Array(const Array& x): m_pos(0),m_size(0),m_data(NULL) { Copy(x); }
+    Array(const T& val): m_pos(0),m_size(0),m_data(NULL) { PushBack(val); }
+    Array(const T* val): m_pos(0),m_size(0),m_data(NULL) { operator =(val); }
 
-    void operator = (const rt_array& x) { Copy(x); }
+    void operator = (const Array& x) { Copy(x); }
 
     void operator =(const T* val){
         if(val){
@@ -49,16 +49,16 @@ public:
     }
 
     void operator += (const T& val) {  PushBack(val); }
-    void operator += (const rt_array&  val) { operator+=(val.Data()); }
+    void operator += (const Array&  val) { operator+=(val.Data()); }
 
-    rt_array operator + (const T& val)const { rt_array out(m_data); out += val; return out; }
-    rt_array operator + (const T* val)const { rt_array out(m_data); out += val; return out; }
-    rt_array operator + (const rt_array& val)const  { return operator+(val.m_data); }
+    Array operator + (const T& val)const { Array out(m_data); out += val; return out; }
+    Array operator + (const T* val)const { Array out(m_data); out += val; return out; }
+    Array operator + (const Array& val)const  { return operator+(val.m_data); }
 
     T& operator [](const T1& index){ return m_data[index]; }
     const T& operator [](const T1& index) const { return m_data[index]; }
 
-    void Copy (const rt_array& x){
+    void Copy (const Array& x){
         Clear();
         Allocate(x.m_size);
         m_size = x.m_size; m_pos  = x.m_pos;

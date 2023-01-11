@@ -1,10 +1,10 @@
 #include "array.h"
 
-rt_array<char> string("moon");
-rt_array<char> string1('-');
-rt_array<char> string2("pie");
+Array<char> string("moon");
+Array<char> string1('-');
+Array<char> string2("pie");
 
-rt_array<uint32_t> array;
+Array<uint32_t> array;
 
 int main(){
 
@@ -21,7 +21,7 @@ int main(){
     printf("str1 %s\n",string1.Data());
     printf("str2 %s\n",string2.Data());
 
-    rt_array<char> string3;
+    Array<char> string3;
 
     string3 = string+string1;
     printf("str  %s\n",string3.Data());
