@@ -1,2 +1,2 @@
 # Array-Temp
- array - atring - quicksort
+ array - string - quicksort
