@@ -23,6 +23,8 @@ class Array {
 public:
     Array():m_pos(0),m_size(0),m_data(NULL){}
 
+    ~Array(){ Clear(); }
+
     Array(const Array& x): m_pos(0),m_size(0),m_data(NULL) { Copy(x); }
     Array(const T& val): m_pos(0),m_size(0),m_data(NULL) { PushBack(val); }
     Array(const T* val): m_pos(0),m_size(0),m_data(NULL) { operator =(val); }
