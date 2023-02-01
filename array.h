@@ -30,7 +30,7 @@ public:
     Array(const T* val): m_pos(0),m_size(0),m_data(NULL) { operator =(val); }
 
     void operator = (const Array& x) { Copy(x); }
-
+    void operator = (const T& val) { Clear(); PushBack(val); }
     void operator =(const T* val){
         if(val){
             Clear();

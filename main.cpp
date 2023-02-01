@@ -23,7 +23,10 @@ int main(){
 
     Array<char> string3;
 
-    string3 = string+string1;
+    string3 =':';
+    string3 +=' ';
+
+    string3 += string+string1;
     printf("str  %s\n",string3.Data());
     string3 += string2;
     printf("str  %s\n",string3.Data());
