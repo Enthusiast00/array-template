@@ -69,7 +69,7 @@ public:
 
     void Allocate(const T1& size ){ if( !Alloc(size,true,false) ){ _ERROR("Alloc"); } }
 
-    void PushBack(T val, bool buffered = false){
+    void PushBack(const T& val, bool buffered = false){
         if( Alloc(m_pos+2,false,buffered) ){
             m_data[m_pos++] = val;
         }else{ _ERROR("Alloc"); }
