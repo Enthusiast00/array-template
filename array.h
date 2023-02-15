@@ -121,7 +121,7 @@ protected:
 
         if(size<=m_size){ return true; }
 
-        T1 asize(size);
+        T1 asize( size + T1(pos) );
         if(!m_data || !m_pos){ _ALLOC(m_data,asize,T); }
         else{
             asize = buffered? m_size*2 : asize;
